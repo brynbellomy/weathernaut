@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+argv = require('optimist')
+          .usage('Usage:\n  $ weathernaut [zipcode] [weather-underground api key]')
+          .demand(2)
+          .argv;
+
+zip    = argv._[0];
+apiKey = argv._[1];
+
+weathernaut = require('../');
+weathernaut.printAstronomicalData(apiKey, zip);
+

@@ -4,9 +4,6 @@ request = require 'request'
 fs      = require 'fs'
 path    = require 'path'
 async   = require 'async'
-
-zip    = '77007'
-apiKey = 'c6e532deca195eda'
 url    = "http://api.wunderground.com/api/#{apiKey}/astronomy/q/#{zip}.json"
 cacheFile = path.join(process.env.HOME, '.weathernaut')
 cache = {}
@@ -88,12 +85,13 @@ printAstronomicalData = (data) ->
         handleError 'printAstronomicalData', err
 
 
-#
-# this is the actual entry point
-#
-getDataFor zip, (err, data) ->
-    if err? then handleError 'main', err
-    else printAstronomicalData(data)
+exports.printAstronomicalData = (_apiKey, _zipcode) ->
+    apiKey = _apiKey
+    zip    = _zipcode
+
+    getDataFor zip, (err, data) ->
+        if err? then handleError 'main', err
+        else printAstronomicalData(data)
     
     
 

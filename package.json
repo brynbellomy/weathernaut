@@ -6,6 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+  "bin": "bin/weathernaut",
 	"repository": "",
 	"author": "bryn austin bellomy",
 	"license": "WTFPL",
