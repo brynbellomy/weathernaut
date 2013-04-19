@@ -3,14 +3,16 @@
 all: build
 
 clean:
-	@rm index.js bin/weathernaut
+	@rm -rf index.js bin/weathernaut
 
 build: index.js bin/weathernaut
 
 index.js: src/index.coffee
-	@coffee -c src/index.coffee -o ./
+	@coffee -c -o ./ ./src/index.coffee
 
 bin/weathernaut: src/weathernaut.coffee
-	@coffee -c src/weathernaut.coffee ./bin/
-	@mv ./bin/weathernaut.js weathernaut
+	@coffee -c -o ./bin/ ./src/weathernaut.coffee
+	@echo '#!/usr/bin/env node\n\n' > ./bin/weathernaut
+	@cat ./bin/weathernaut.js >> ./bin/weathernaut
+	@rm -rf ./bin/weathernaut.js
 	@chmod +x bin/weathernaut
