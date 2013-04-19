@@ -1,6 +1,6 @@
 {
   "name": "weathernaut",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI tool for querying the Weather Underground API",
   "main": "index.js",
   "bin": {
