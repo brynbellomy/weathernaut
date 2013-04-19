@@ -1,17 +1,33 @@
 {
-	"name": "weathernaut",
-	"version": "0.0.1",
-	"description": "ERROR: No README.md file found!",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-  "bin": "bin/weathernaut",
-	"repository": "",
-	"author": "bryn austin bellomy",
-	"license": "WTFPL",
-	"dependencies": {
-		"request": "2.16.x",
-		"colors": "0.6.x"
-	}
+  "name": "weathernaut",
+  "version": "0.0.1",
+  "description": "CLI tool for querying the Weather Underground API",
+  "main": "index.js",
+  "bin": {
+    "weathernaut": "bin/weathernaut"
+  },
+  "dependencies": {
+    "colors": "~0.6.0-1",
+    "request": "~2.16.6",
+    "async": "0.2.x"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brynbellomy/weathernaut.git"
+  },
+  "keywords": [
+    "weather",
+    "cli",
+    "underground",
+    "api",
+    "terminal"
+  ],
+  "author": "bryn austin bellomy <bryn.bellomy@gmail.com>",
+  "license": "WTFPLv2"
 }
