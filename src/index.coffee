@@ -21,7 +21,7 @@ class WeathernautStore
     maxCacheAgeInMsec: null
 
     constructor: (@apiKey) ->
-        @cacheFile         = path.join(process.env.HOME, '.weathernaut')
+        @cacheFile         = path.join(process.env.HOME, '.weathernaut-cache')
         @maxCacheAgeInMsec = 1000 * 60 * 60 * 12   # 12 hours
         @cache = @readCacheFile()
 
@@ -77,7 +77,7 @@ class WeathernautStore
             @writeMemoryCacheToDisk (err) =>
                 if err then handleError 'updateCacheFor', err
                 callback()
-            
+
 
 
     getDataFor: (service, zipcode, callback) =>
@@ -88,7 +88,7 @@ class WeathernautStore
             @updateCacheFor service, zipcode, (err) =>
                 if err then handleError 'getDataFor', err
                 callback err,  @cache[ service ][ zipcode ]
-        
+
 
 
 class WeathernautDefaultFormatter
@@ -156,7 +156,7 @@ class WeathernautDefaultFormatter
             low:  "#{dateNumColored}#{padding[1]}#{low.blue.bold}F"
         }
 
-    
+
 
 class exports.Weathernaut
     apiKey:  null
@@ -188,7 +188,7 @@ class exports.Weathernaut
 
 
 
-    
+
 
 
 
